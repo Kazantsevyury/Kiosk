@@ -3,6 +3,7 @@ package UJ.Kiosk.model;
 import UJ.Kiosk.enums.TaskPriority;
 import UJ.Kiosk.enums.TaskStatus;
 import UJ.Kiosk.enums.TrackingType;
+import UJ.Kiosk.idGenerator.IdGenerator;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -11,7 +12,6 @@ import java.time.LocalDateTime;
 
 @Data
 public class Task {
-    private static Long idCounter = 0L;
 
     private final Long id;
     @NotBlank
@@ -31,7 +31,7 @@ public class Task {
     private TaskPriority priority;
 
     public Task(String name, String creator, String executor) {
-        this.id = ++idCounter;
+        this.id =  IdGenerator.generateId();
         this.name = name;
         this.description = null;
         this.creator = creator;
