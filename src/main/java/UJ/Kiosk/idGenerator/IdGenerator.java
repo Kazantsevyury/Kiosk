@@ -2,34 +2,21 @@ package UJ.Kiosk.idGenerator;
 import java.util.UUID;
 
 /**
- * This interface defines methods for generating IDs.
+ * An interface that defines methods for generating Long and UUID IDs.
  */
 public interface IdGenerator {
 
     /**
-     * Generates a unique ID as a Long, positive.
+     * Generates a unique Long ID.
      *
-     * @return A unique Long ID, positive.
+     * @return A unique Long ID.
      */
-    static Long generateId() {
-        UUID uuid = generateUUIDId();
-        long mostSignificantBits = uuid.getMostSignificantBits();
-        long leastSignificantBits = uuid.getLeastSignificantBits();
-        long id = (mostSignificantBits << 64) | leastSignificantBits;
-
-        if (id < 0) {
-            id = Math.abs(id);
-        }
-
-        return id;
-    }
+    public Long generateLongId();
 
     /**
      * Generates a unique UUID (Universally Unique Identifier).
      *
      * @return A unique UUID.
      */
-    static UUID generateUUIDId() {
-        return UUID.randomUUID();
-    }
+    public UUID generateUUIDId();
 }

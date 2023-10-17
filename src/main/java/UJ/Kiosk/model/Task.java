@@ -30,8 +30,8 @@ public class Task {
     private final String completedByEmployee;  // должно быть типом User.
     private TaskPriority priority;
 
-    public Task(String name, String creator, String executor) {
-        this.id =  IdGenerator.generateId();
+    public Task(Long id,String name, String creator, String executor) {
+        this.id = id ;
         this.name = name;
         this.description = null;
         this.creator = creator;
