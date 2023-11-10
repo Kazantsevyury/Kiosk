@@ -7,11 +7,11 @@ import java.util.UUID;
 public interface IdGenerator {
 
     /**
-     * Generates a unique Long ID.
+     * Generates a unique Integer ID.
      *
-     * @return A unique Long ID.
+     * @return A unique Integer ID.
      */
-    public Long generateLongId();
+    public Integer generateIntegerId();
 
     /**
      * Generates a unique UUID (Universally Unique Identifier).

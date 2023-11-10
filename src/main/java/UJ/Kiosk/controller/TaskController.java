@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -27,17 +25,16 @@ public class TaskController {
     }
 
     @GetMapping("/get/{id}")
-    public Task get (@PathVariable long id){
+    public Task get (@PathVariable Integer id){
         log.info("Invoke get method with task with id = {}",id);
         return taskService.findTaskById(id);
 
     }
 
     @PutMapping("/updatetask/{id}")
-    public Task updateTask(@PathVariable long id, @RequestBody @Valid Task updatedTask) {
+    public void updateTask(@PathVariable Integer id, @RequestBody @Valid Task updatedTask) {
         log.info("Invoke updateFilm method for task with id = {}", id);
-        taskService.updateTask(updatedTask,id);
-        return taskService.findTaskById(id);
+        taskService.updateTask(updatedTask);
     }
 
 }

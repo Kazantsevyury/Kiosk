@@ -1,9 +1,8 @@
 package UJ.Kiosk.model;
 
-import lombok.AllArgsConstructor;
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
@@ -13,15 +12,11 @@ import javax.validation.constraints.Past;
 import java.time.LocalDate;
 
 @Data
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NotNull
-@Accessors(chain = true)
-
+@ApiModel(description = "User")
 public class User {
-    private static Long idCounter = 0L; // Это счетчик для id,  потом нужно переписать, \
-    // но это будет браться из баз данных, а ее пока нет, по этому на данный момент и так сойдет.
-
-    private final Long id;
+    private final int id;
     private final boolean is_supervisor ; // Это для того чтобы был только один "хозяин", пока не придумал как это реализовать.
 
     @NotBlank // Анотации для валидации.
