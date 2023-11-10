@@ -1,8 +1,10 @@
-package UJ.Kiosk.storage;
+package UJ.Kiosk.storage.Users;
 
 import UJ.Kiosk.model.User;
 
-import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
 /**
  * The UserStorage interface defines a contract for classes responsible for
  * managing a storage of user-related data, typically for a Kiosk application.
@@ -23,7 +25,7 @@ public interface UserStorage {
      * @param id The unique identifier of the user.
      * @return The user with the specified identifier or null if the user is not found.
      */
-    User getUserById(Long id);
+    User getUserById(Integer id);
 
     /**
      * Deletes a user from the storage by their unique identifier.
@@ -31,21 +33,26 @@ public interface UserStorage {
      * @param id The unique identifier of the user to be deleted.
      * @return true if the user was successfully deleted, otherwise false.
      */
-    boolean deleteUserById(Long id);
+    boolean deleteUserById(Integer id);
 
     /**
      * Updates an existing user in the storage based on their unique identifier.
-     * If a user with the specified identifier does not exist, the method may create a new user.
      *
-     * @param id The unique identifier of the user to be updated.
+     * @param updatedUser  The unique identifier of the user to be updated.
      */
     void updateUser(User updatedUser);
 
     /**
-     * Retrieves all users from the storage as a collection, typically for a Kiosk application.
+     * Retrieves all users from the storage as a List.
      *
-     * @return A collection of all users stored in the storage.
+     * @return A List of all users stored in the storage.
      */
-    Collection<User> getAllUsers();
+    List<User> retrieveAllUsers();
+    /**
+     * Retrieves all users from the storage as a Map.
+     *
+     * @return A  Map<Integer, User>  of all users stored in the storage.
+     */
+    Map<Integer, User> retrieveUserMap();
 
 }
