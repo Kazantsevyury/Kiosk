@@ -1,4 +1,4 @@
-package UJ.Kiosk.model;
+package UJ.Kiosk.model.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @NotNull
 @Accessors(chain = true)
 
-public class User {
+public class User implements IUser {
     private static Long idCounter = 0L; // Это счетчик для id,  потом нужно переписать, \
     // но это будет браться из баз данных, а ее пока нет, по этому на данный момент и так сойдет.
 
