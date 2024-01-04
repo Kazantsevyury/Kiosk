@@ -1,4 +1,4 @@
-package UJ.Kiosk.model;
+package UJ.Kiosk.model.User;
 
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
@@ -15,8 +15,10 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 @NotNull
 @ApiModel(description = "User")
-public class User {
+
+public class User implements IUser {
     private final int id;
+
     private final boolean is_supervisor ; // Это для того чтобы был только один "хозяин", пока не придумал как это реализовать.
 
     @NotBlank // Анотации для валидации.
