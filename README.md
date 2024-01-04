@@ -20,7 +20,7 @@ Notes
 This is the initial version of the application, and additional features will be added in the future. Our goal is to provide a straightforward task management tool for small businesses.
 
 ## License
-This application is distributed under the [LICENSE NAME] license. Details can be found in the LICENSE file.
+This application is distributed under the license. Details can be found in the LICENSE file.
 
 ## Getting Started
 [Download](download link) the Android application.
