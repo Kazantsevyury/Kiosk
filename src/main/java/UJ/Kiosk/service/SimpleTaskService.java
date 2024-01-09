@@ -1,7 +1,9 @@
 package UJ.Kiosk.service;
 
-import UJ.Kiosk.model.Task;
-import UJ.Kiosk.storage.Tasks.TaskStorage;
+import UJ.Kiosk.model.Task.ITask;
+import UJ.Kiosk.model.Task.SimpleTask;
+import UJ.Kiosk.model.TaskID.ITaskID;
+import UJ.Kiosk.storage.Tasks.ITaskStorage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -11,23 +13,23 @@ import java.util.*;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class TaskService {
-    private final TaskStorage taskStorage;
+public class SimpleTaskService implements ITaskService {
+    private final ITaskStorage taskStorage;
 
-    public Task create(Task task){
+    public ITask create(ITask task){
         return taskStorage.createTask(task);
     }
-    public List<Task> findAll() {
+    public List<ITask> findAll() {
         return taskStorage.retrieveAllTasks();
     }
-    public void updateTask(Task task){
+    public void updateTask(ITask task){
         taskStorage.updateTask(task);
     }
-    public void removeTaskById(Integer id){
+    public void removeTaskById(ITaskID id){
         taskStorage.deleteTaskById(id);
     }
 
-    public Task findTaskById(Integer id) {
+    public ITask findTaskById(ITaskID id) {
         return taskStorage.retrieveTaskById(id);
     }
 }
